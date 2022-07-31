@@ -1,9 +1,7 @@
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.lazyredraw = true
-vim.opt.termguicolors = true
 vim.opt.updatetime = 100
-
 vim.opt.guicursor = ""
 
 vim.opt.number = true
@@ -21,11 +19,13 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
-vim.opt.backup = false
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 vim.opt.termguicolors = true
 

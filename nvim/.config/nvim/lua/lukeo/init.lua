@@ -1,2 +1,2 @@
-require("lukeo.set")
-print("Hello from lukeo")
+require('lukeo.set')
+require('lukeo.remap')
