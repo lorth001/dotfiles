@@ -3,6 +3,9 @@ local inoremap = require('lukeo.keymap').inoremap
 
 -- Basic stuff
 inoremap('jk', '<C-c>')
+nnoremap('<leader>x', vim.diagnostic.open_float)
+nnoremap('<leader>/', ':let @/ = \'\'<CR>', { silent = true })
+nnoremap('<leader>y', ':%y<CR>')
 
 -- Splits
 nnoremap('<leader>v', '<C-w>v')
@@ -20,5 +23,3 @@ nnoremap('=', '<C-w>=')
 
 -- netrw
 nnoremap('<leader>ex', '<cmd>Ex<CR>')
-
-nnoremap('<leader>x', vim.diagnostic.open_float)

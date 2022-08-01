@@ -74,15 +74,20 @@ _G.packer_plugins = {
     path = "/home/luke/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/luke/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/luke/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["tokyonight.nvim"] = {
+  ["vim-devicons"] = {
     loaded = true,
-    path = "/home/luke/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    path = "/home/luke/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
   }
 }
 

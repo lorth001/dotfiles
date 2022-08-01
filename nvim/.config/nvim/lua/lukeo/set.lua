@@ -1,8 +1,8 @@
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.ignorecase = true
 vim.opt.lazyredraw = true
 vim.opt.updatetime = 100
-vim.opt.guicursor = ""
+vim.opt.guicursor = ''
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -21,7 +21,6 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.splitbelow = true
@@ -30,8 +29,8 @@ vim.opt.splitright = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.opt.signcolumn = 'yes'
+vim.opt.isfname:append('@-@')
 
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
@@ -41,8 +40,58 @@ vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 
 -- Don't pass messages to |ins-completion-menu|.
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append('c')
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
+
+-- Custom dashboard
+local db = require 'dashboard'
+db.custom_header = {
+	'',
+	'',
+	'',
+	'',
+	' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+	' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+	' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+	' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+	' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+	' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+	'',
+	'',
+	'',
+}
+db.custom_center = {
+	{
+		icon = ' ',
+		desc = 'New File            ',
+		action = 'DashboardNewFile',
+		shortcut = 'SPC o',
+	},
+	{
+		icon = ' ',
+		desc = 'Browse Files        ',
+		action = 'Telescope file_browser',
+		shortcut = 'SPC n',
+	},
+	{
+		icon = ' ',
+		desc = 'Find File           ',
+		action = 'Telescope find_files',
+		shortcut = 'SPC f',
+	},
+	{
+		icon = ' ',
+		desc = 'Configure Neovim    ',
+		action = 'edit ~/.config/nvim/lua/init.lua',
+		shortcut = 'SPC v',
+	},
+	{
+		icon = ' ',
+		desc = 'Exit Neovim         ',
+		action = 'quit',
+    shortcut = 'SPC q',
+	},
+}
