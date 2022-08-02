@@ -9,14 +9,19 @@ vim.opt.relativenumber = true
 
 vim.opt.errorbells = false
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath('config') .. '/.undodir//'
+vim.opt.undofile = true
 
 vim.opt.swapfile = false
 vim.opt.undofile = true
@@ -45,53 +50,3 @@ vim.opt.shortmess:append('c')
 vim.opt.colorcolumn = '80'
 
 vim.g.mapleader = ' '
-
--- Custom dashboard
-local db = require 'dashboard'
-db.custom_header = {
-	'',
-	'',
-	'',
-	'',
-	' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-	' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-	' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-	' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-	' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-	' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-	'',
-	'',
-	'',
-}
-db.custom_center = {
-	{
-		icon = ' ',
-		desc = 'New File            ',
-		action = 'DashboardNewFile',
-		shortcut = 'SPC o',
-	},
-	{
-		icon = ' ',
-		desc = 'Browse Files        ',
-		action = 'Telescope file_browser',
-		shortcut = 'SPC n',
-	},
-	{
-		icon = ' ',
-		desc = 'Find File           ',
-		action = 'Telescope find_files',
-		shortcut = 'SPC f',
-	},
-	{
-		icon = ' ',
-		desc = 'Configure Neovim    ',
-		action = 'edit ~/.config/nvim/lua/init.lua',
-		shortcut = 'SPC v',
-	},
-	{
-		icon = ' ',
-		desc = 'Exit Neovim         ',
-		action = 'quit',
-    shortcut = 'SPC q',
-	},
-}
