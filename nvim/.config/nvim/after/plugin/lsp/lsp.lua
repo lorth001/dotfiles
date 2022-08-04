@@ -1,3 +1,6 @@
+-- Resource for updating LSP configs
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
+
 require('mason').setup()
 
 local mason_lspconfig = require('mason-lspconfig')
@@ -32,8 +35,9 @@ mason_lspconfig.setup({
     ensure_installed = servers,
 })
 
-local settings = {}
 for _, server in pairs(servers) do
+    local settings = {}
+
     if server == 'sumneko_lua' then
         settings = {
             Lua = {
@@ -41,7 +45,18 @@ for _, server in pairs(servers) do
                     globals = { 'vim' },
                 }
             }
-        } else settings = {}
+        }
+    end
+    if server == 'pylsp' then
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = {
+                        maxLineLength = 120
+                    }
+                }
+            }
+        }
     end
     local opts = {
         on_attach = function(client, bufnr)
