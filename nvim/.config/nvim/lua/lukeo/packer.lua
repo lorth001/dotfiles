@@ -3,7 +3,11 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Color palette
-    use { 'catppuccin/nvim', as = 'catppuccin' }
+    use {
+        'catppuccin/nvim',
+        as = 'catppuccin',
+        run = ':CatppuccinCompile'
+    }
 
     -- NVIM main menu dashboard
     use 'glepnir/dashboard-nvim'
