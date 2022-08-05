@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
         as = 'catppuccin',
         run = ':CatppuccinCompile'
     }
+    use 'ellisonleao/gruvbox.nvim'
 
     -- NVIM main menu dashboard
     use 'glepnir/dashboard-nvim'
