@@ -17,7 +17,6 @@ local servers = {
     'html',
     'jsonls',
     'ltex',
-    'pylsp',
     'pyright',
     'robotframework_ls',
     'rust_analyzer',
@@ -37,7 +36,8 @@ mason_lspconfig.setup({
 
 for _, server in pairs(servers) do
     local settings = {}
-
+vim.api.nvim_set_keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
     if server == 'sumneko_lua' then
         settings = {
             Lua = {
@@ -61,12 +61,13 @@ for _, server in pairs(servers) do
     local opts = {
         on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true }
+
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	        vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 	        vim.api.nvim_buf_set_keymap(
@@ -78,17 +79,16 @@ for _, server in pairs(servers) do
 	        )
 	        vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	        vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])
+            vim.api.nvim_set_keymap('n', '<C-j>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
+            vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
+
 	        -- vim.notify(client.name .. " starting...")
 	        -- TODO: refactor this into a method that checks if string in list
 	        if client.name == "tsserver" then
 		        client.resolved_capabilities.document_formatting = false
 	        end
 
-            local status_ok, illuminate = pcall(require, "illuminate")
-	        if not status_ok then
-		        return
-	        end
-	        illuminate.on_attach(client)
+            require 'illuminate'.on_attach(client)
         end,
         settings = settings,
     }
