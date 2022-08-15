@@ -120,6 +120,5 @@ export PATH=$PATH:$HOME/bin
 
 
 # Environment variables used in my /usr/local/bin/ scripts
-# weather script
-export OWM_API_KEY= # Open Weather Map API Key
-export CURRENT_CITY= 
+# Ansible replaces the commented line below with all of my sensitive environment variables
+# SENSITIVE_ENV_VARS
