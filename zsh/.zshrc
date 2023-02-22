@@ -122,3 +122,5 @@ export PATH=$PATH:$HOME/bin
 # Environment variables used in my /usr/local/bin/ scripts
 # Ansible replaces the commented line below with all of my sensitive environment variables
 # SENSITIVE_ENV_VARS
+
+export PATH=$PATH:$HOME/go/bin
