@@ -124,3 +124,4 @@ export PATH=$PATH:$HOME/bin
 # SENSITIVE_ENV_VARS
 
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin
