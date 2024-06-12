@@ -9,6 +9,7 @@ local servers = {
     'ansiblels',
     'awk_ls',
     'bashls',
+    'clangd',
     'cmake',
     'cssls',
     'dockerls',
